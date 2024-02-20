@@ -1,0 +1,26 @@
+// need to install the protobuf compiler and the go plugin
+// brew install protobuf
+// brew install protoc-gen-go
+
+// replace the {replace-me-with-a-start} with a star, did this
+// bc vscode was complaining about the star
+
+// then run the following command to generate the go code
+// or use the makefile to run this command (better option)
+/*
+protoc api/v1/{replace-me-with-a-start}.proto \   
+  --go_out=. \
+  --go_opt=paths=source_relative \
+  --proto_path=.
+*/
+
+syntax = "proto3";
+
+package log.v1;
+
+option go_package = "github.com/naolson2025/go-distributed-system/api/log_v1";
+
+message Record {
+  bytes value = 1;
+  uint64 offset = 2;
+}
